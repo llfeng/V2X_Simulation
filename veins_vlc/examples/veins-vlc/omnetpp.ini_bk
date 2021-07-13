@@ -1,0 +1,321 @@
+[General]
+cmdenv-express-mode = true
+cmdenv-autoflush = true
+cmdenv-status-frequency = 1s
+**.cmdenv-log-level = info
+
+ned-path = .
+image-path = ../../images
+
+network = VLCExampleScenario
+
+##########################################################
+#            Simulation parameters                       #
+##########################################################
+debug-on-errors = true
+print-undisposed = true
+
+sim-time-limit = 200s
+
+**.scalar-recording = true
+**.vector-recording = true
+
+*.playgroundSizeX = 2500m
+*.playgroundSizeY = 2500m
+*.playgroundSizeZ = 50m
+
+
+##########################################################
+# Annotation parameters                                  #
+##########################################################
+*.annotations.draw = true
+
+##########################################################
+# Obstacle parameters                                    #
+##########################################################
+*.obstacles.obstacles = xmldoc("config.xml", "//AnalogueModel[@type='SimpleObstacleShadowing']/obstacles")
+
+##########################################################
+#            TraCIScenarioManager parameters             #
+##########################################################
+*.manager.updateInterval = 1s
+*.manager.host = "localhost"
+*.manager.port = 9999
+*.manager.autoShutdown = true
+*.manager.launchConfig = xmldoc("vlc.launchd.xml")
+
+##########################################################
+#                       RSU SETTINGS                     #
+#                                                        #
+#                                                        #
+##########################################################
+#*.rsu[0].mobility.x = 300
+#*.rsu[0].mobility.y = 100
+#*.rsu[0].mobility.z = 3
+
+
+#*.rsu[*].applType = "TraCIDemoRSU11p"
+*.rsu[0].applType = "org.car2x.veinsvlc.RSUVlc.RSUApp.RSUApp"
+*.rsu[0].appl.headerLength = 80 bit
+*.rsu[0].appl.sendBeacons = false
+*.rsu[0].appl.dataOnSch = false
+*.rsu[0].appl.beaconInterval = 1s
+
+######0###################################################
+#     0                Mobility                          #
+######0###################################################
+
+*.rsu[0].foreignMobility.x = 250
+*.rsu[0].foreignMobility.y = 100
+*.rsu[0].foreignMobility.z = 3
+*.rsu[0].veinsmobility.x = 250
+*.rsu[0].veinsmobility.y = 100
+*.rsu[0].veinsmobility.z = 3
+*.rsu[0].veinsmobility.setHostSpeed = false
+*.rsu[0].veinsmobility.accidentCount = 0
+*.rsu[0].veinsmobility.accidentStart = 73s
+*.rsu[0].veinsmobility.accidentDuration = 50s
+
+##########################################################
+#            VLC specific parameters                     #
+#                                                        #
+#                    NIC-Settings                        #
+##########################################################
+# PhyLayerVlc
+*.rsu[0].rsuNicVlc.phyVlc.txPower = 10mW	# This is a nominal value, should not be listed as simulatin parameter
+*.rsu[0].rsuNicVlc.phyVlc.bitrate = 1Mbps
+
+# Base0hyLayer
+*.rsu[0].rsuNicVlc.phyVlc.usePropagationDelay = true
+*.rsu[0].rsuNicVlc.phyVlc.noiseFloor = -110dBm
+*.rsu[0].rsuNicVlc.phyVlc.useNoiseFloor = true
+*.rsu[0].rsuNicVlc.phyVlc.minPowerLevel = -114dBm
+
+*.rsu[0].rsuNicVlc.phyVlc.antenna = xml("<root><Antenna type=\"HeadlightAntenna\" id=\"HeadlightAntenna\"></Antenna></root>")
+
+*.rsu[0].rsuNicVlc.phyVlc.antennaOffsetX = 2.5 m
+*.rsu[0].rsuNicVlc.phyVlc.antennaOffsetZ = 0.6 m
+
+*.rsu[0].rsuNicVlc.phyVlc.analogueModels = xmldoc("config-vlc.xml")
+*.rsu[0].rsuNicVlc.phyVlc.decider = xmldoc("config-vlc.xml")
+
+# Spli0ter
+*.rsu[0].splitter.drawHeadHalfAngle = 45deg
+*.rsu[0].splitter.drawTailHalfAngle = 60deg
+
+# LsvL0ghtModel
+*.rsu[0].rsuNicVlc.phyVlc.radiationPatternId = "LbSedan1"
+# othe0 patterns: LbSedan2, LbSuv1, HbSedan1, HbSedan2
+*.rsu[0].rsuNicVlc.phyVlc.photodiodeId = "PDA100A"
+*.rsu[0].rsuNicVlc.phyVlc.photodiodeGroundOffsetZ = 0.6 m
+
+## ant0nnaOffsetZ only applies to head and taillights
+*.rsu[0].rsuNicVlc.phyVlc.interModuleDistance = 1.5 m
+*.rsu[0].application.packetByteLength = 1024byte
+*.rsu[0].application.beaconingFrequency = 1Hz
+
+#*.rsu[*].applType = "TraCIDemoRSU11p"
+*.rsu[1].applType = "org.car2x.veinsvlc.RSUVlc.RSUApp.RSUApp"
+*.rsu[1].appl.headerLength = 80 bit
+*.rsu[1].appl.sendBeacons = false
+*.rsu[1].appl.dataOnSch = false
+*.rsu[1].appl.beaconInterval = 1s
+
+######1###################################################
+#     1                Mobility                          #
+######1###################################################
+
+*.rsu[1].foreignMobility.x = 200
+*.rsu[1].foreignMobility.y = 100
+*.rsu[1].foreignMobility.z = 3
+*.rsu[1].veinsmobility.x = 200
+*.rsu[1].veinsmobility.y = 100
+*.rsu[1].veinsmobility.z = 3
+*.rsu[1].veinsmobility.setHostSpeed = false
+*.rsu[1].veinsmobility.accidentCount = 0
+*.rsu[1].veinsmobility.accidentStart = 73s
+*.rsu[1].veinsmobility.accidentDuration = 50s
+
+######1###################################################
+#     1      VLC specific parameters                     #
+#     1                                                  #
+#     1              NIC-Settings                        #
+######1###################################################
+# PhyL1yerVlc
+*.rsu[1].rsuNicVlc.phyVlc.txPower = 10mW	# This is a nominal value, should not be listed as simulatin parameter
+*.rsu[1].rsuNicVlc.phyVlc.bitrate = 1Mbps
+
+# Base1hyLayer
+*.rsu[1].rsuNicVlc.phyVlc.usePropagationDelay = true
+*.rsu[1].rsuNicVlc.phyVlc.noiseFloor = -110dBm
+*.rsu[1].rsuNicVlc.phyVlc.useNoiseFloor = true
+*.rsu[1].rsuNicVlc.phyVlc.minPowerLevel = -114dBm
+
+*.rsu[1].rsuNicVlc.phyVlc.antenna = xml("<root><Antenna type=\"HeadlightAntenna\" id=\"HeadlightAntenna\"></Antenna></root>")
+
+*.rsu[1].rsuNicVlc.phyVlc.antennaOffsetX = 2.5 m
+*.rsu[1].rsuNicVlc.phyVlc.antennaOffsetZ = 0.6 m
+
+*.rsu[1].rsuNicVlc.phyVlc.analogueModels = xmldoc("config-vlc.xml")
+*.rsu[1].rsuNicVlc.phyVlc.decider = xmldoc("config-vlc.xml")
+
+# Spli1ter
+*.rsu[1].splitter.drawHeadHalfAngle = 45deg
+*.rsu[1].splitter.drawTailHalfAngle = 60deg
+
+# LsvL1ghtModel
+*.rsu[1].rsuNicVlc.phyVlc.radiationPatternId = "LbSedan1"
+# othe1 patterns: LbSedan2, LbSuv1, HbSedan1, HbSedan2
+*.rsu[1].rsuNicVlc.phyVlc.photodiodeId = "PDA100A"
+*.rsu[1].rsuNicVlc.phyVlc.photodiodeGroundOffsetZ = 0.6 m
+
+## ant1nnaOffsetZ only applies to head and taillights
+*.rsu[1].rsuNicVlc.phyVlc.interModuleDistance = 1.5 m
+*.rsu[1].application.packetByteLength = 1024byte
+*.rsu[1].application.beaconingFrequency = 1Hz
+
+
+##########################################################
+#            11p specific parameters                     #
+#                                                        #
+#                    NIC-Settings                        #
+##########################################################
+*.connectionManager.sendDirect = true
+*.connectionManager.maxInterfDist = 2600m
+*.connectionManager.drawMaxIntfDist = false
+
+*.**.nic.mac1609_4.useServiceChannel = false
+
+*.**.nic.mac1609_4.txPower = 20mW
+*.**.nic.mac1609_4.bitrate = 6Mbps
+*.**.nic.phy80211p.minPowerLevel = -110dBm
+
+*.**.nic.phy80211p.useNoiseFloor = true
+*.**.nic.phy80211p.noiseFloor = -98dBm
+
+*.**.nic.phy80211p.decider = xmldoc("config.xml")
+*.**.nic.phy80211p.analogueModels = xmldoc("config.xml")
+*.**.nic.phy80211p.usePropagationDelay = true
+
+*.**.nic.phy80211p.antenna = xmldoc("antenna.xml", "/root/Antenna[@id='monopole']")
+*.node[*].nic.phy80211p.antennaOffsetY = 0 m
+*.node[*].nic.phy80211p.antennaOffsetZ = 1.895 m
+
+##########################################################
+#                      App Layer                         #
+##########################################################
+*.node[*].applType = "TraCIDemo11p"
+*.node[*].appl.headerLength = 80 bit
+*.node[*].appl.sendBeacons = false
+*.node[*].appl.dataOnSch = false
+*.node[*].appl.beaconInterval = 1s
+
+##########################################################
+#                      Mobility                          #
+##########################################################
+*.node[*].veinsmobility.x = 0
+*.node[*].veinsmobility.y = 0
+*.node[*].veinsmobility.z = 0
+*.node[*].veinsmobility.setHostSpeed = false
+*.node[*0].veinsmobility.accidentCount = 0
+*.node[*0].veinsmobility.accidentStart = 73s
+*.node[*0].veinsmobility.accidentDuration = 50s
+
+##########################################################
+#            VLC specific parameters                     #
+#                                                        #
+#                    NIC-Settings                        #
+##########################################################
+# PhyLayerVlc
+*.node[*].nicVlc**.phyVlc.txPower = 10mW	# This is a nominal value, should not be listed as simulatin parameter
+*.node[*].nicVlc**.phyVlc.bitrate = 1Mbps
+
+# BasePhyLayer
+*.node[*].nicVlc**.phyVlc.usePropagationDelay = true
+*.node[*].nicVlc**.phyVlc.noiseFloor = -110dBm
+*.node[*].nicVlc**.phyVlc.useNoiseFloor = true
+*.node[*].nicVlc**.phyVlc.minPowerLevel = -114dBm
+
+*.node[*].nicVlcHead.phyVlc.antenna = xml("<root><Antenna type=\"HeadlightAntenna\" id=\"HeadlightAntenna\"></Antenna></root>")
+*.node[*].nicVlcTail.phyVlc.antenna = xml("<root><Antenna type=\"TaillightAntenna\" id=\"TaillightAntenna\"></Antenna></root>")
+
+*.node[*].nicVlcHead.phyVlc.antennaOffsetX = 2.5 m
+*.node[*].nicVlcTail.phyVlc.antennaOffsetX = -2.5 m
+*.node[*].nicVlcHead.phyVlc.antennaOffsetZ = 0.6 m
+*.node[*].nicVlcTail.phyVlc.antennaOffsetZ = 0.8 m
+*.node[*].nicVlcTail.phyVlc.antennaOffsetYaw = 180deg
+
+*.node[*].nicVlc**.phyVlc.analogueModels = xmldoc("config-vlc.xml")
+*.node[*].nicVlc**.phyVlc.decider = xmldoc("config-vlc.xml")
+
+# Splitter
+*.node[*].splitter.drawHeadHalfAngle = 45deg
+*.node[*].splitter.drawTailHalfAngle = 60deg
+
+# LsvLightModel
+*.node[*].nicVlcHead.phyVlc.radiationPatternId = "LbSedan1"
+# other patterns: LbSedan2, LbSuv1, HbSedan1, HbSedan2
+*.node[*].nicVlcTail.phyVlc.radiationPatternId = "DefaultRear"
+*.node[*].nicVlc**.phyVlc.photodiodeId = "PDA100A"
+*.node[*].nicVlcHead.phyVlc.photodiodeGroundOffsetZ = 0.6 m
+*.node[*].nicVlcTail.phyVlc.photodiodeGroundOffsetZ = 0.2 m
+
+## antennaOffsetZ only applies to head and taillights
+*.node[*].nicVlc**.phyVlc.interModuleDistance = 1.5 m
+
+[Config SimOptions]
+description = "Generic simulation settings"
+
+experiment-label = vlc-experiment
+result-dir = results/${experiment}/${configname}
+
+warmup-period = 0
+sim-time-limit = 30000s
+repeat = 1
+
+
+*.manager.autoShutdown = false
+
+cmdenv-log-prefix = "[%c%?-%l] %M "
+
+# Debugs (Cmdenv mode)
+cmdenv-express-mode = false
+cmdenv-event-banners = false
+
+# Show traces for these modules
+**.application.cmdenv-log-level = trace
+**.splitter.cmdenv-log-level = trace
+**.macVlc.cmdenv-log-level = trace
+**.phyVlc.cmdenv-log-level = trace
+
+# Disable all of the other traces
+**.cmdenv-log-level = off
+
+## Visual debugs
+*.node[*].splitter.draw = true
+*.annotations.draw = true
+
+[Config DriveVlc]
+extends = SimOptions
+description = "A simple scenario with a straight road where cars drive"
+
+*.manager.moduleType = "org.car2x.veinsvlc.CarVlc"
+*.manager.updateInterval = 0.1s
+
+*.node[*].applType = "org.car2x.veinsvlc.application.simpleVlcApp.SimpleVlcApp"
+*.node[*].application.packetByteLength = 1024byte
+*.node[*].application.beaconingFrequency = 1Hz
+
+[Config DriveLsvVlc]
+extends = SimOptions
+description = "A simple scenario with a straight road where cars drive"
+
+*.node[*].nicVlc**.phyVlc.analogueModels = xmldoc("config-vlc-lsv.xml")
+*.node[*].nicVlc**.phyVlc.decider = xmldoc("config-vlc-lsv.xml")
+
+*.manager.moduleType = "org.car2x.veinsvlc.CarVlc"
+*.manager.updateInterval = 0.1s
+
+*.node[*].applType = "org.car2x.veinsvlc.application.simpleVlcApp.SimpleVlcApp"
+*.node[*].application.packetByteLength = 1024byte
+*.node[*].application.beaconingFrequency = 1Hz

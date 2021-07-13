@@ -1,0 +1,42 @@
+####rsu[0] setting
+*.rsu[0].applType = "org.car2x.veinsvlc.application.RSUApp.RSUApp"
+*.rsu[0].appl.headerLength = 8 bit
+*.rsu[0].appl.sendBeacons = false
+*.rsu[0].appl.dataOnSch = false
+*.rsu[0].appl.beaconInterval = 1s
+
+*.rsu[0].foreignMobility.x = 500
+*.rsu[0].foreignMobility.y = 20
+*.rsu[0].foreignMobility.z = 3
+
+# PhyLayerVlc
+*.rsu[0].rsuNicVlc.tagPhyVlc.txPower = 10mW	# This is a nominal value, should not be listed as simulatin parameter
+*.rsu[0].rsuNicVlc.tagPhyVlc.bitrate = 1000bps
+
+# Base0hyLayer
+*.rsu[0].rsuNicVlc.tagPhyVlc.usePropagationDelay = false
+*.rsu[0].rsuNicVlc.tagPhyVlc.noiseFloor = -110dBm
+*.rsu[0].rsuNicVlc.tagPhyVlc.useNoiseFloor = true
+*.rsu[0].rsuNicVlc.tagPhyVlc.minPowerLevel = -114dBm
+
+*.rsu[0].rsuNicVlc.tagPhyVlc.antenna = xml("<root><Antenna type=\"HeadlightAntenna\" id=\"HeadlightAntenna\"></Antenna></root>")
+
+*.rsu[0].rsuNicVlc.tagPhyVlc.antennaOffsetX = 2.5 m
+*.rsu[0].rsuNicVlc.tagPhyVlc.antennaOffsetZ = 0.6 m
+*.rsu[0].rsuNicVlc.tagPhyVlc.antennaOffsetYaw = 180deg
+
+
+*.rsu[0].rsuNicVlc.tagPhyVlc.analogueModels = xmldoc("config-vlc.xml")
+*.rsu[0].rsuNicVlc.tagPhyVlc.decider = xmldoc("config-vlc.xml")
+
+# LsvL0ghtModel
+*.rsu[0].rsuNicVlc.tagPhyVlc.radiationPatternId = "LbSedan1"
+# othe0 patterns: LbSedan2, LbSuv1, HbSedan1, HbSedan2
+*.rsu[0].rsuNicVlc.tagPhyVlc.photodiodeId = "PDA100A"
+*.rsu[0].rsuNicVlc.tagPhyVlc.photodiodeGroundOffsetZ = 0.6 m
+
+## ant0nnaOffsetZ only applies to head and taillights
+*.rsu[0].rsuNicVlc.tagPhyVlc.interModuleDistance = 1.5 m
+*.rsu[0].application.packetByteLength = 1byte
+*.rsu[0].application.beaconingFrequency = 1Hz
+

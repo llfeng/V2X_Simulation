@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on Sun Jan 31 18:12:27 2021 by Eclipse SUMO netconvert Version 1.0.1
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="my.nod.xml"/>
+        <edge-files value="my.edg.xml"/>
+    </input>
+
+    <output>
+        <output-file value="vlc.net.xml"/>
+    </output>
+
+</configuration>
+-->
+
+<net version="1.0" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,700.00,0.00" origBoundary="0.00,0.00,700.00,0.00" projParameter="!"/>
+
+    <edge id="edgeR-0-0" from="node1" to="node2" priority="-1">
+        <lane id="edgeR-0-0_0" index="0" speed="13.89" length="700.00" shape="0.00,-1.60 700.00,-1.60"/>
+    </edge>
+
+    <junction id="node1" type="dead_end" x="0.00" y="0.00" incLanes="" intLanes="" shape="0.00,0.00 0.00,-3.20"/>
+    <junction id="node2" type="dead_end" x="700.00" y="0.00" incLanes="edgeR-0-0_0" intLanes="" shape="700.00,-3.20 700.00,0.00"/>
+
+</net>

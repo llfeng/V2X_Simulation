@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+
+<!--
+// Copyright (C) 2019 Agon Memedi <memedi@ccs-labs.org>
+//
+// SPDX-License-Identifier: (GPL-2.0-or-later OR CC-BY-SA-4.0)
+//
+// This program is free software; you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation; either version 2 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program; if not, write to the Free Software
+// Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+//
+// -
+//
+// At your option, you can also redistribute and/or modify this file
+// under a
+// Creative Commons Attribution-ShareAlike 4.0 International License.
+//
+// You should have received a copy of the license along with this
+// work.  If not, see <http://creativecommons.org/licenses/by-sa/4.0/>.
+-->
+
+<routes>
+    <route id="route0" edges="edgeR-0-0"/>
+    <vType accel="10.0" decel="5.0" id="Car0" length="5.0" width="2.5" maxSpeed="33.0" sigma="0.0" minGap="0.0" vClass="bus"/>        
+    <vType accel="10.0" decel="5.0" id="Car1" length="5.0" width="2.5" maxSpeed="33.0" sigma="0.0" minGap="0.0" vClass="taxi"/>        
+    <vType accel="10.0" decel="5.0" id="Car2" length="5.0" width="2.5" maxSpeed="33.0" sigma="0.0" minGap="0.0" vClass="evehicle"/>        
+
+    <flow begin="0" end="40" id="flow1" route="route0" type="Car1" departSpeed="max" period="8" speedFactor = "1.0"/>
+	<flow begin="3" end="43" id="flow2" route="route0" type="Car0" departSpeed="max" period="8" speedFactor = "1.0"/>
+	<flow begin="6" end="46" id="flow3" route="route0" type="Car2" departSpeed="max" period="8" speedFactor = "1.0"/>
+<!--
+    <flow begin="0" end="10" id="flow2" route="route0" type="Car1" departSpeed="max" period="2"/>
+    <vehicle depart="0" id="veh0" route="route0" type="Car0" departLane="1" arrivalLane="1"/>    
+    <vehicle depart="0" id="veh1" route="route0" type="Car0" departLane="1" arrivalLane="1"/>
+    <vehicle depart="0" id="veh2" route="route0" type="Car0" departLane="1" arrivalLane="1"/>    
+    <vehicle depart="0" id="veh3" route="route0" type="Car0" departLane="1" arrivalLane="1"/>
+    <vehicle depart="0" id="veh4" route="route0" type="Car1" departLane="1" arrivalLane="1"/>    
+    <vehicle depart="0" id="veh5" route="route0" type="Car1" departLane="1" arrivalLane="1"/>    
+    <vehicle depart="0" id="veh6" route="route0" type="Car1" departLane="1" arrivalLane="1"/>
+    <vehicle depart="0" id="veh7" route="route0" type="Car1" departLane="1" arrivalLane="1"/>  
+-->
+</routes>

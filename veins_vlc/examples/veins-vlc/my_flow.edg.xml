@@ -1,0 +1,8 @@
+<edges> 
+<edge id="edgeR-0-0" from="node1" to="node2" numLanes="3">
+    <lane index="0" disallow="taxi bus" speed="50.0" width="3.75"/>
+    <lane index="1" disallow="bus evehicle" speed="50.0" width="3.75"/>
+    <lane index="2" disallow="taxi evehicle" speed="50.0" width="3.75"/>
+    delivery
+</edge>
+</edges>

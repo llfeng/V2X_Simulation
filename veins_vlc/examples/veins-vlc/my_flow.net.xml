@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- generated on 06/01/21 17:14:00 by Eclipse SUMO netconvert Version 1.8.0
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/netconvertConfiguration.xsd">
+
+    <input>
+        <node-files value="my_flow.nod.xml"/>
+        <edge-files value="my_flow.edg.xml"/>
+    </input>
+
+    <output>
+        <output-file value="my_flow.net.xml"/>
+    </output>
+
+    <report>
+        <aggregate-warnings value="5"/>
+    </report>
+
+</configuration>
+-->
+
+<net version="1.6" junctionCornerDetail="5" limitTurnSpeed="5.50" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/net_file.xsd">
+
+    <location netOffset="0.00,0.00" convBoundary="0.00,0.00,5000.00,0.00" origBoundary="0.00,0.00,5000.00,0.00" projParameter="!"/>
+
+    <edge id="edgeR-0-0" from="node1" to="node2" priority="-1">
+        <lane id="edgeR-0-0_0" index="0" disallow="taxi bus" speed="50.00" length="5000.00" width="3.75" shape="0.00,-9.38 5000.00,-9.38"/>
+        <lane id="edgeR-0-0_1" index="1" disallow="bus evehicle" speed="50.00" length="5000.00" width="3.75" shape="0.00,-5.63 5000.00,-5.63"/>
+        <lane id="edgeR-0-0_2" index="2" disallow="taxi evehicle" speed="50.00" length="5000.00" width="3.75" shape="0.00,-1.88 5000.00,-1.88"/>
+    </edge>
+
+    <junction id="node1" type="dead_end" x="0.00" y="0.00" incLanes="" intLanes="" shape="0.00,0.00 0.00,-11.25"/>
+    <junction id="node2" type="dead_end" x="5000.00" y="0.00" incLanes="edgeR-0-0_0 edgeR-0-0_1 edgeR-0-0_2" intLanes="" shape="5000.00,-11.25 5000.00,0.00"/>
+
+</net>
